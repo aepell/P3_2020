@@ -36,11 +36,11 @@ def move(my_history, their_history, my_score, their_score):
    # 
    #  return 'c'
     if len(my_history)==0: # It's the first round; collude.
-        return 'c'    
+        return 'b'    
     elif 'b' in their_history:
-        return 'b'
-    else:
         return 'c'
+    else:
+        return 'b'
   
         
 
@@ -48,7 +48,7 @@ def move(my_history, their_history, my_score, their_score):
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
     from this module. Prints error if return value != result.
-    Returns True or False, dpending on whether result was as expected.
+    Returns True or False, depending on whether result was as expected.
     '''
     real_result = move(my_history, their_history, my_score, their_score)
     if real_result == result:
