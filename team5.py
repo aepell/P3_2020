@@ -6,9 +6,9 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The Law Firm of Pratt and Roberts' # Only 10 chars displayed.
-strategy_name = 'Jaded'
-strategy_description = "We collude until we're screwed."
+team_name = 'Sumer and Sathvik' # Only 10 chars displayed.
+strategy_name = '100% Collude'
+strategy_description = "We collude no matter what"
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -38,7 +38,7 @@ def move(my_history, their_history, my_score, their_score):
     if len(my_history)==0: # It's the first round; collude.
         return 'c'    
     elif 'b' in their_history:
-        return 'b'
+        return 'c'
     else:
         return 'c'
   
@@ -48,7 +48,7 @@ def move(my_history, their_history, my_score, their_score):
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
     from this module. Prints error if return value != result.
-    Returns True or False, dpending on whether result was as expected.
+    Returns True or False, depending on whether result was as expected.
     '''
     real_result = move(my_history, their_history, my_score, their_score)
     if real_result == result:
@@ -63,15 +63,15 @@ def test_move(my_history, their_history, my_score, their_score, result):
 
 if __name__ == '__main__':
      
-    # Test 1: Betray on first move.
+    # Test 1: First move is colluding.
     if test_move(my_history='',
               their_history='', 
               my_score=0,
               their_score=0,
-              result='b'):
+              result='c'):
          print 'Test passed'
-     # Test 2: Continue betraying if they collude despite being betrayed.
-    test_move(my_history='bbb',
+     # Test 2: Continue colluding if they collude.
+    test_move(my_history='ccc',
               their_history='ccc', 
               # Note the scores are for testing move().
               # The history and scores don't need to match unless
@@ -81,4 +81,4 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='b')             
+              result='c')             
